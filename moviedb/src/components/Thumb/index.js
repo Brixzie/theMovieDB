@@ -8,5 +8,5 @@ const Thumb = ({ image, movieId, clickable }) => (
     </div>
 )
 
-
+// test
 export default Thumb;
