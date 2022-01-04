@@ -13,9 +13,12 @@ const initialState = {
 };
 
 export const useHomeFetch = () => {
+    const [searchTerm, setSearchTerm] = useState('');
     const [state, setState] = useState(initialState);
-    const [loading, setLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+
+    console.log(searchTerm);
 
     //searchTerm default set to ""
     const fetchMovies = async (page, searchTerm = "") => {
@@ -28,9 +31,9 @@ export const useHomeFetch = () => {
             //Print response of the api
             //console.log(movies);
             //console.log(math.Count(...movies));
-            
+
             //Sets the state with this whole object
-            //returns an object, which is why we have the parenthesis 
+            //returns an object, which is why we have the parenthesis
             setState(prev => ({
                 //spreads the new movies const
                 ...movies,
@@ -40,12 +43,12 @@ export const useHomeFetch = () => {
                     page > 1 ? [...prev.results, ...movies.results] : [...movies.results]
             }))
 
-            /* 
+            /*
                 var o = {
                 r: 'some value',
                 t: 'some other value'
                 };
-                
+
                 is functionally equivalent to
 
                 var o = new Object();
@@ -65,6 +68,6 @@ export const useHomeFetch = () => {
     }, [])
 
     //returns an object
-    return { state, loading, error};
+    return { state, loading, error, setSearchTerm};
 }
 
