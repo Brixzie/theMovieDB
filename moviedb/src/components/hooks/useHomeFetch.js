@@ -68,20 +68,25 @@ export const useHomeFetch = () => {
     //(dependency array (what's it dependend on to trigger))
     //Triggers each time searchTerm changes and on mount
     //3.05h if you want to remove main image when searching
+
+    // Search
     useEffect(() => {
         setState(initialState);
         fetchMovies(1, searchTerm);
-    }, [searchTerm])
+    }, [searchTerm]);
 
+    // Load more
     useEffect(()=> {
-        if(!isLoadingMore) return;
+        if(!isLoadingMore){
+            console.log('triggered');
+            return;
+        }; 
 
         fetchMovies(state.page + 1, searchTerm);
         setIsLoadingMore(false);
 
     },[isLoadingMore, searchTerm, state.page]);
 
-    //returns an object
     return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore};
 }
 
