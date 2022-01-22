@@ -17,8 +17,11 @@ export const useHomeFetch = () => {
     const [state, setState] = useState(initialState);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
 
     console.log(searchTerm);
+
+
 
     //searchTerm default set to ""
     const fetchMovies = async (page, searchTerm = "") => {
@@ -63,11 +66,22 @@ export const useHomeFetch = () => {
     };
     //Initial render
     //(dependency array (what's it dependend on to trigger))
+    //Triggers each time searchTerm changes and on mount
+    //3.05h if you want to remove main image when searching
     useEffect(() => {
-        fetchMovies(1)
-    }, [])
+        setState(initialState);
+        fetchMovies(1, searchTerm);
+    }, [searchTerm])
+
+    useEffect(()=> {
+        if(!isLoadingMore) return;
+
+        fetchMovies(state.page + 1, searchTerm);
+        setIsLoadingMore(false);
+
+    },[isLoadingMore, searchTerm, state.page]);
 
     //returns an object
-    return { state, loading, error, setSearchTerm};
+    return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore};
 }
 
