@@ -20,6 +20,7 @@ const MovieInfo = ({ movie }) => (
                     : NoImage
                 }
                 clickable={false}
+                fade={false}
             
             />
             <Text>

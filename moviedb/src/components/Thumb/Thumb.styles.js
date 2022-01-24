@@ -6,9 +6,14 @@ export const Image = styled.img`
   transition: all 0.3s;
   object-fit: cover;
   border-radius: 20px;
-  :hover {
-    opacity: 0.7;
+
+:hover {
+    ${({fade}) =>
+      fade ? 'opacity: 0.7;'
+      : 'opacity: 1;'
+    }
   }
+  
   // border-radius: 50px;
   animation: animateThumb 3.5s;
 
