@@ -9,6 +9,7 @@ import Grid from './Grid';
 import Spinner from "./Spinner";
 import BreadCrumb from "./BreadCrumb";
 import MovieInfo from "./MovieInfo";
+import MovieInfoBar from "./MovieInfoBar";
 
 //Hook
 import { useMovieFetch } from "./hooks/useMovieFetch";
@@ -18,21 +19,26 @@ import NoImage from '../images/no_image.jpg';
 
 
 const Movie = () => {
-    const { movieId } = useParams();
-    const { state: movie, loading, error} = useMovieFetch(movieId); //rename state to movie
+  const { movieId } = useParams();
+  const { state: movie, loading, error } = useMovieFetch(movieId); //rename state to movie
 
-    console.log(movie);
-    if(loading) return <Spinner />;
-    if(error) return <div>Something went wrong..</div>;
-return (
+  console.log(movie);
+  if (loading) return <Spinner />;
+  if (error) return <div>Something went wrong..</div>;
+  return (
     <>
-        <div>
-            <BreadCrumb movieTitle={movie.original_title} />
-            <MovieInfo movie={movie} />
-        </div>
+      <div>
+        <BreadCrumb movieTitle={movie.original_title} />
+        <MovieInfo movie={movie} />
+        <MovieInfoBar 
+          time={movie.runtime} 
+          budget={movie.budget} 
+          revenue={movie.revenue} 
+        />
+      </div>
     </>
 
-)
+  )
 }
 
 
