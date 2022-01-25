@@ -10,6 +10,7 @@ import Thumb from './Thumb';
 import Spinner from './Spinner';
 import SearchBar from './SearchBar';
 import Button from './Button';
+import Filter from './Filter';
 
 //Hook
 import { useHomeFetch } from './hooks/useHomeFetch';
@@ -42,6 +43,7 @@ const Home = () => {
         />
         : null}
         <SearchBar setSearchTerm={ setSearchTerm }/>
+        <Filter />
         <Grid header='Popular Movies'>
             {console.log(state)}
             {console.log(state.results)}
