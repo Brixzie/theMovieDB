@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items:center;
   // border: 5px solid red;
+  // height: 200px;
   background: var(--darkGrey);
   padding-bottom: 20px;
 `;
@@ -13,6 +14,7 @@ export const Wrapper = styled.div`
 export const Open = styled.div`
   border-radius: 30px;
   background: var(--medGrey);
+  // border: 5px solid red;
   width: 150px;
   height: 50px;
   color: var(--white);
@@ -43,6 +45,17 @@ export const Open = styled.div`
 `;
 
 export const Content = styled.div`
-
+  width: 100%;
+  height: 200px;
+  color: seashell;
+  animation: animateFilter 1.5s;
+  @keyframes animateFilter {
+    from {
+      height: 50px;
+    }
+    to {
+      height: 200px;
+    }
+  }
 `;
 
