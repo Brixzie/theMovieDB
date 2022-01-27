@@ -21,6 +21,12 @@ const conv = (val) => {
   return (
     <Wrapper>
       {state ? 
+/*pass state to content and if false have animation go back.
+Content is only open if it's been previously set to true
+So no issue of starting there. 
+Is useeffect needed? Or is usestate enough. 
+Useeffect is for side effects 
+*/
       <Content>
         {/* Add if statement in styled document for animation, so it goes back if false 
             Maybe have to have to different css classes, one that is for open and one that is for close, with their own animations.
