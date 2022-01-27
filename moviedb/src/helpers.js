@@ -13,3 +13,12 @@ export const convertMoney = money => {
   });
   return formatter.format(money);
 };
+
+//
+export const getRandomInt = () => {
+  return Math.floor(Math.random() * 100);
+};
+
+export function getRandomInt2() {
+  return Math.floor(Math.random() * 100);
+}

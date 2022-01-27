@@ -5,10 +5,21 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items:center;
+  border: ${({open}) => {
+    if(open === true){
+      return '0px solid red';
+    }else if(open === false){
+      return '0px solid blue';
+    }
+  }};
   // border: 5px solid red;
   // height: 200px;
   background: var(--darkGrey);
   padding-bottom: 20px;
+`;
+
+export const Closed = styled.div`
+
 `;
 
 export const Open = styled.div`
@@ -45,9 +56,12 @@ export const Open = styled.div`
 `;
 
 export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items:center;
   width: 100%;
   height: 200px;
-  color: seashell;
+  // border: 5px solid red;
   animation: animateFilter 1.5s;
   @keyframes animateFilter {
     from {

@@ -12,13 +12,15 @@ import SearchBar from './SearchBar';
 import Button from './Button';
 import Filter from './Filter';
 
+//helper
+import helpers from '../helpers';
+
 //Hook
 import { useHomeFetch } from './hooks/useHomeFetch';
 //Image
 import NoImage from '../images/no_image.jpg';
 
 const Home = () => {
-
     const { 
         state, 
         loading, 
@@ -27,7 +29,6 @@ const Home = () => {
         setSearchTerm,
         setIsLoadingMore
      } = useHomeFetch();
-
 
     console.log(state);
 
