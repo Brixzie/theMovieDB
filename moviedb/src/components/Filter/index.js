@@ -18,7 +18,7 @@ const conv = (val) => {
   
   return (
     <Wrapper open={state}>
-      {state ? 
+      {state ?
       <Content open={'test'}>
         <Open type='button' onClick={ () => setState(false) }>
           <h3>Close Filters</h3>
@@ -26,7 +26,7 @@ const conv = (val) => {
       </Content>
       :
       <Open type='button' onClick={ () => setState(true) }>
-        <h3>Show Filters</h3>  
+        <h3>{`Hello ${process.env.REACT_APP_NAME}`}</h3>  
         {console.log(boolVal)}
       </Open> 
       }
